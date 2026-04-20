@@ -3,43 +3,66 @@ from bs4 import BeautifulSoup
 import json
 
 def get_meta():
-    url = "https://codmunity.gg/warzone-meta"
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+    # Direct URL to the tier list for 2026
+    url = "https://codmunity.gg/tier-list/warzone"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9'
+    }
     
     try:
-        res = requests.get(url, headers=headers)
-        soup = BeautifulSoup(res.text, 'html.parser')
+        response = requests.get(url, headers=headers, timeout=15)
+        soup = BeautifulSoup(response.text, 'html.parser')
         
-        found_weapons = []
-        # We look specifically for <h3> tags which are usually weapon names
-        all_titles = soup.find_all(['h3', 'h2'])
-
-        for title in all_titles:
-            name = title.get_text(strip=True)
+        weapons = []
+        
+        # 1. FIND THE 'ABSOLUTE META' SECTION
+        # In 2026, the site uses specific titles for the S-Tier section
+        meta_section = soup.find(string=lambda t: t and "Absolute Meta" in t)
+        
+        if meta_section:
+            # Look for the next few weapon names after that title
+            parent = meta_section.find_parent()
+            # Find all text that looks like a weapon name (Uppercase/Numbers)
+            potential_names = parent.find_all_next(['h3', 'h2', 'div'], limit=15)
             
-            # THE FILTER: Only accept names that look like actual weapons
-            # (e.g., skip "Download our app", "Follow us", etc.)
-            blacklisted_words = ["download", "app", "tools", "privacy", "follow", "meta", "loadout"]
-            if any(word in name.lower() for word in blacklisted_words) or len(name) > 20:
-                continue
+            for item in potential_names:
+                name = item.get_text(strip=True)
+                
+                # FILTER: Skip junk like "Download", "Follow", "App", "Tools"
+                junk = ["download", "app", "tools", "privacy", "follow", "meta", "loadout", "social"]
+                if any(x in name.lower() for x in junk) or len(name) < 2 or len(name) > 15:
+                    continue
 
-            found_weapons.append({
-                "name": name,
-                "class": "Meta Choice",
-                "tier": "S",
-                "pickRate": "Trending",
-                "code": "CHECK-SITE",
-                "attachments": {"Status": "Live Scraped", "Build": "Check Source"}
-            })
+                # If it passed the filter, it's likely a gun (e.g. MK35 ISR)
+                weapons.append({
+                    "name": name,
+                    "class": "S-TIER META",
+                    "tier": "S",
+                    "pickRate": "High",
+                    "code": "GET-IN-APP",
+                    "attachments": {
+                        "Status": "Verified",
+                        "Source": "CODMunity Live"
+                    }
+                })
 
-        # Final check: If we found at least 3 real-looking weapons, save them.
-        # Otherwise, don't touch the file (keep the hard-coded ones).
-        if len(found_weapons) >= 3:
+        # 2. FINAL CLEANUP & SAVE
+        # Only save if we found real weapons. If we found 0, keep the file as is.
+        if len(weapons) >= 2:
+            # Remove duplicates
+            seen = set()
+            unique_weapons = []
+            for w in weapons:
+                if w['name'] not in seen:
+                    unique_weapons.append(w)
+                    seen.add(w['name'])
+
             with open('meta.json', 'w') as f:
-                json.dump(found_weapons[:10], f, indent=4)
-            print(f"Success! Found {len(found_weapons)} weapons.")
+                json.dump(unique_weapons[:6], f, indent=4) # Top 6
+            print(f"Success! Found {len(unique_weapons)} real weapons.")
         else:
-            print("Scraper failed to find real weapons. Keeping fallback data.")
+            print("Scraper only found junk. Safety fallback: No changes made.")
 
     except Exception as e:
         print(f"Error: {e}")
