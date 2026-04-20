@@ -1,0 +1,31 @@
+name: Auto Update Meta Data
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+  workflow_dispatch: # Allows you to run it manually with one click
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install Tools
+        run: pip install requests beautifulsoup4
+        
+      - name: Run Scraper
+        run: python scrape.py
+        
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "MetaBot"
+          git config --global user.email "bot@metahub.com"
+          git add meta.json
+          git commit -m "Auto-update weapons for $(date)"
+          git push
