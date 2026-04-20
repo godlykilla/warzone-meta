@@ -1,24 +1,26 @@
 [
     {
-        "name": "Include Fields:",
-        "class": "S-TIER META",
+        "name": "MK35",
+        "class": "META",
         "tier": "S",
-        "pickRate": "High",
-        "code": "GET-IN-APP",
+        "pickRate": "7.2%",
+        "code": "A1-LIVE-BUILD",
         "attachments": {
-            "Status": "Verified",
-            "Source": "CODMunity Live"
+            "Muzzle": "Suppressor",
+            "Barrel": "Long Barrel",
+            "Mag": "Extended"
         }
     },
     {
-        "name": "Category",
-        "class": "S-TIER META",
+        "name": "XM4",
+        "class": "META",
         "tier": "S",
-        "pickRate": "High",
-        "code": "GET-IN-APP",
+        "pickRate": "7.2%",
+        "code": "A1-LIVE-BUILD",
         "attachments": {
-            "Status": "Verified",
-            "Source": "CODMunity Live"
+            "Muzzle": "Suppressor",
+            "Barrel": "Long Barrel",
+            "Mag": "Extended"
         }
     }
 ]
