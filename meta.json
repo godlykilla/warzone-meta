@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "name": "Kilo 141 (OLD META)",
+        "class": "AR",
+        "tier": "D",
+        "pickRate": "0.01%",
+        "code": "OLD-SCHOOL-CODE",
+        "attachments": {
+            "Muzzle": "Monolithic Suppressor",
+            "Barrel": "Singuard Arms 19.8\"",
+            "Optic": "VLK 3.0x",
+            "Underbarrel": "Commando Foregrip",
+            "Magazine": "60 Round Mags"
+        }
+    },
+    {
+        "name": "MP5 (MW2019)",
+        "class": "SMG",
+        "tier": "D",
+        "pickRate": "0.02%",
+        "code": "OG-MP5-CODE",
+        "attachments": {
+            "Muzzle": "Monolithic Integral Suppressor",
+            "Laser": "5mW Laser",
+            "Stock": "FTAC Collapsible",
+            "Underbarrel": "Merc Foregrip",
+            "Magazine": "45 Round Mags"
+        }
+    }
+]
