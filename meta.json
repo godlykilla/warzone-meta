@@ -1,57 +1,35 @@
 [
     {
-        "name": "CODMunity",
-        "class": "AR/SMG",
+        "name": "Competitive",
+        "class": "Meta Choice",
         "tier": "S",
-        "pickRate": "-5% code\u00a0CODMunity",
-        "code": "BUILD-IN-APP",
+        "pickRate": "Trending",
+        "code": "CHECK-SITE",
         "attachments": {
-            "Note": "See App for full build",
-            "Build": "Verified Meta"
+            "Status": "Live Scraped",
+            "Build": "Check Source"
         }
     },
     {
-        "name": "Download our mobile app",
-        "class": "AR/SMG",
+        "name": "Other Websites",
+        "class": "Meta Choice",
         "tier": "S",
-        "pickRate": "-5% code\u00a0CODMunity",
-        "code": "BUILD-IN-APP",
+        "pickRate": "Trending",
+        "code": "CHECK-SITE",
         "attachments": {
-            "Note": "See App for full build",
-            "Build": "Verified Meta"
+            "Status": "Live Scraped",
+            "Build": "Check Source"
         }
     },
     {
-        "name": "Download our mobile app",
-        "class": "AR/SMG",
+        "name": "Other Links",
+        "class": "Meta Choice",
         "tier": "S",
-        "pickRate": "Meta",
-        "code": "BUILD-IN-APP",
+        "pickRate": "Trending",
+        "code": "CHECK-SITE",
         "attachments": {
-            "Note": "See App for full build",
-            "Build": "Verified Meta"
-        }
-    },
-    {
-        "name": "Download our mobile app",
-        "class": "AR/SMG",
-        "tier": "S",
-        "pickRate": "Meta",
-        "code": "BUILD-IN-APP",
-        "attachments": {
-            "Note": "See App for full build",
-            "Build": "Verified Meta"
-        }
-    },
-    {
-        "name": "Tools",
-        "class": "AR/SMG",
-        "tier": "S",
-        "pickRate": "Meta",
-        "code": "BUILD-IN-APP",
-        "attachments": {
-            "Note": "See App for full build",
-            "Build": "Verified Meta"
+            "Status": "Live Scraped",
+            "Build": "Check Source"
         }
     }
 ]
