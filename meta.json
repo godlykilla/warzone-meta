@@ -1,35 +1,24 @@
 [
     {
-        "name": "Competitive",
-        "class": "Meta Choice",
+        "name": "Include Fields:",
+        "class": "S-TIER META",
         "tier": "S",
-        "pickRate": "Trending",
-        "code": "CHECK-SITE",
+        "pickRate": "High",
+        "code": "GET-IN-APP",
         "attachments": {
-            "Status": "Live Scraped",
-            "Build": "Check Source"
+            "Status": "Verified",
+            "Source": "CODMunity Live"
         }
     },
     {
-        "name": "Other Websites",
-        "class": "Meta Choice",
+        "name": "Category",
+        "class": "S-TIER META",
         "tier": "S",
-        "pickRate": "Trending",
-        "code": "CHECK-SITE",
+        "pickRate": "High",
+        "code": "GET-IN-APP",
         "attachments": {
-            "Status": "Live Scraped",
-            "Build": "Check Source"
-        }
-    },
-    {
-        "name": "Other Links",
-        "class": "Meta Choice",
-        "tier": "S",
-        "pickRate": "Trending",
-        "code": "CHECK-SITE",
-        "attachments": {
-            "Status": "Live Scraped",
-            "Build": "Check Source"
+            "Status": "Verified",
+            "Source": "CODMunity Live"
         }
     }
 ]
