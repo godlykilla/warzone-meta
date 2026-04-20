@@ -1,26 +1,58 @@
 [
     {
-        "name": "MK35",
-        "class": "META",
+        "name": "MK35 ISR",
+        "class": "AR",
         "tier": "S",
-        "pickRate": "7.2%",
-        "code": "A1-LIVE-BUILD",
+        "pickRate": "29.1%",
+        "code": "A12-34FK5-DRNJU-11",
         "attachments": {
-            "Muzzle": "Suppressor",
-            "Barrel": "Long Barrel",
-            "Mag": "Extended"
+            "Optic": "FANG HoverPoint ELO",
+            "Muzzle": "Monolithic Suppressor",
+            "Barrel": "16.5\" Greaves Bellum",
+            "Underbarrel": "VAS Convergence Foregrip",
+            "Magazine": "Bowen Siren Drum"
         }
     },
     {
-        "name": "XM4",
-        "class": "META",
+        "name": "Razor 9mm",
+        "class": "SMG",
         "tier": "S",
-        "pickRate": "7.2%",
-        "code": "A1-LIVE-BUILD",
+        "pickRate": "17.3%",
+        "code": "S03-AUXZ3-92ZB1-1",
         "attachments": {
-            "Muzzle": "Suppressor",
-            "Barrel": "Long Barrel",
-            "Mag": "Extended"
+            "Optic": "FANG HoverPoint ELO",
+            "Muzzle": "Monolithic Suppressor",
+            "Barrel": "12\" MFS Sidewinder",
+            "Underbarrel": "Lateral Precision Grip",
+            "Magazine": "Zealot Extended Mag II"
+        }
+    },
+    {
+        "name": "Strider 300",
+        "class": "SNIPER",
+        "tier": "S",
+        "pickRate": "8.1%",
+        "code": "R07-2JD6P-5NM5G-6J11",
+        "attachments": {
+            "Muzzle": "Monolithic Suppressor",
+            "Barrel": "25\" Bowen Grooved",
+            "Magazine": "Carnation Fast Mag",
+            "Rear Grip": "Hatch Quick Grip",
+            "Fire Mod": ".300 WM Overpressured"
+        }
+    },
+    {
+        "name": "Peacekeeper Mk1",
+        "class": "AR",
+        "tier": "A",
+        "pickRate": "7.0%",
+        "code": "A06-34FBS-SSSP3-11",
+        "attachments": {
+            "Muzzle": "Monolithic Suppressor",
+            "Barrel": "25\" EAM Heavy Barrel",
+            "Stock": "MFS Counterforce-C1",
+            "Magazine": "Barrage Extended Mag",
+            "Optic": "FANG HoverPoint ELO"
         }
     }
 ]
