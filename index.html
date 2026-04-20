@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>META-HUB | Warzone & BO7 Loadouts</title>
+    <style>
+        :root {
+            --bg-main: #0a0b10;
+            --bg-card: #15171e;
+            --bg-nav: #1c1f26;
+            --accent: #ff4136;
+            --accent-glow: rgba(255, 65, 54, 0.3);
+            --text-main: #e0e0e0;
+            --text-dim: #94a3b8;
+            --s-tier: #ff4136;
+            --a-tier: #ffa500;
+            --b-tier: #3498db;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            padding-top: 70px; /* Offset for sticky nav */
+        }
+
+        /* --- STICKY NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--bg-nav);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-filters {
+            display: flex;
+            gap: 12px;
+        }
+
+        .filter-btn {
+            background: #252833;
+            border: 1px solid #333;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* --- HERO & SEARCH --- */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #1c1f26, #0a0b10);
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 25px auto 0;
+        }
+
+        #weaponSearch {
+            width: 100%;
+            padding: 14px 25px;
+            border-radius: 30px;
+            border: 1px solid #333;
+            background: var(--bg-card);
+            color: white;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #weaponSearch:focus { border-color: var(--accent); }
+
+        /* --- MAIN GRID --- */
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .weapon-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .weapon-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .tier-strip { height: 6px; width: 100%; }
+        .tier-s { background: var(--s-tier); }
+        .tier-a { background: var(--a-tier); }
+        .tier-b { background: var(--b-tier); }
+
+        .card-content { padding: 20px; }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .tier-badge {
+            font-size: 0.7rem;
+            font-weight: 900;
+            padding: 3px 10px;
+            border-radius: 4px;
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .badge-s { background: var(--s-tier); }
+        .badge-a { background: var(--a-tier); }
+        .badge-b { background: var(--b-tier); }
+
+        .weapon-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 5px;
+        }
+
+        .pick-rate-box { text-align: right; }
+        .pick-label { font-size: 0.65rem; color: var(--text-dim); }
+        .pick-value { color: var(--accent); font-weight: 800; font-size: 1.1rem; }
+
+        .attachment-list {
+            list-style: none;
+            background: rgba(0,0,0,0.25);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .attachment-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #222;
+            font-size: 0.85rem;
+        }
+
+        .attachment-item:last-child { border-bottom: none; }
+        .slot { color: var(--text-dim); font-weight: 500; }
+        .part { color: #fff; font-weight: 600; }
+
+        .share-code {
+            margin-top: 15px;
+            background: #111;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+            border: 1px dashed #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="logo">META<span>HUB</span></a>
+    <div class="nav-filters">
+        <button class="filter-btn active" onclick="filterData('ALL', this)">All</button>
+        <button class="filter-btn" onclick="filterData('AR', this)">AR</button>
+        <button class="filter-btn" onclick="filterData('SMG', this)">SMG</button>
+        <button class="filter-btn" onclick="filterData('SNIPER', this)">Sniper</button>
+    </div>
+</nav>
+
+<header>
+    <h1>The Absolute Meta</h1>
+    <p>Season 3 Reloaded | Updated April 2026</p>
+    <div class="search-container">
+        <input type="text" id="weaponSearch" placeholder="Search for a weapon or attachment..." onkeyup="handleSearch()">
+    </div>
+</header>
+
+<main class="container" id="weaponGrid">
+    </main>
+
+<footer>
+    <p>&copy; 2026 META-HUB. Optimized for Warzone & Black Ops 7.</p>
+</footer>
+
+<script>
+    let weaponData = [];
+
+    // This function downloads the data from your JSON file
+    async function loadMetaData() {
+        try {
+            const response = await fetch('meta.json');
+            weaponData = await response.json();
+            renderHub(weaponData);
+        } catch (error) {
+            console.error("Could not load meta data. Make sure meta.json is in the same folder!", error);
+        }
+    }
+
+    function renderHub(data) {
+        const grid = document.getElementById('weaponGrid');
+        grid.innerHTML = '';
+
+        data.forEach(w => {
+            const lowTier = w.tier.toLowerCase();
+            const card = document.createElement('div');
+            card.className = 'weapon-card';
+            
+            card.innerHTML = `
+                <div class="tier-strip tier-${lowTier}"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <span class="tier-badge badge-${lowTier}">${w.tier} Tier</span>
+                            <div class="weapon-name">${w.name}</div>
+                        </div>
+                        <div class="pick-rate-box">
+                            <div class="pick-label">PICK RATE</div>
+                            <div class="pick-value">${w.pickRate}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="attachment-list">
+                        ${Object.entries(w.attachments).map(([slot, part]) => `
+                            <div class="attachment-item">
+                                <span class="slot">${slot}</span>
+                                <span class="part">${part}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="share-code">
+                        CODE: ${w.code}
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function filterData(category, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filtered = category === 'ALL' ? weaponData : weaponData.filter(w => w.class === category);
+        renderHub(filtered);
+    }
+
+    function handleSearch() {
+        const query = document.getElementById('weaponSearch').value.toLowerCase();
+        const filtered = weaponData.filter(w => 
+            w.name.toLowerCase().includes(query) || 
+            Object.values(w.attachments).some(p => p.toLowerCase().includes(query))
+        );
+        renderHub(filtered);
+    }
+
+    // Start the auto-load process
+    loadMetaData();
+</script>
+
+</body>
+</html>

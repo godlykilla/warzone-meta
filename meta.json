@@ -1,0 +1,58 @@
+[
+    {
+        "name": "MK35 ISR",
+        "class": "AR",
+        "tier": "S",
+        "pickRate": "7.56%",
+        "code": "A12-34FK5-DRNJU-11",
+        "attachments": {
+            "Optic": "FANG HoverPoint ELO",
+            "Muzzle": "Monolithic Suppressor",
+            "Barrel": "16.5\" Greaves Bellum",
+            "Underbarrel": "VAS Convergence Foregrip",
+            "Magazine": "Bowen Siren Drum"
+        }
+    },
+    {
+        "name": "VST",
+        "class": "SMG",
+        "tier": "S",
+        "pickRate": "7.52%",
+        "code": "V01-XX92-LTI-01",
+        "attachments": {
+            "Muzzle": "Compensator",
+            "Barrel": "Long Barrel",
+            "Underbarrel": "Vertical Foregrip",
+            "Magazine": "50 Rnd Drum",
+            "Stock": "No Stock"
+        }
+    },
+    {
+        "name": "Razor 9mm",
+        "class": "SMG",
+        "tier": "S",
+        "pickRate": "6.39%",
+        "code": "S03-AUXZ3-92ZB1-1",
+        "attachments": {
+            "Optic": "Lethal Tools ELO",
+            "Muzzle": "H-9mm Precision Comp",
+            "Barrel": "12\" MFS Sidewinder",
+            "Magazine": "Zealot Extended Mag II",
+            "Stock": "Serpent Pad"
+        }
+    },
+    {
+        "name": "Hawker HX",
+        "class": "SNIPER",
+        "tier": "S",
+        "pickRate": "6.13%",
+        "code": "H05-99P-SNPR",
+        "attachments": {
+            "Muzzle": "Suppressor",
+            "Barrel": "Extended Barrel",
+            "Stock": "Heavy Stock",
+            "Magazine": "Fast Mag",
+            "Bolt": "Rapid Bolt"
+        }
+    }
+]
